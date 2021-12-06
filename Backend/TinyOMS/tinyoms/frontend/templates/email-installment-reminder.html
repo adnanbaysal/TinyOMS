@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      /* Style the container for inputs */
+
+      @media screen and (max-width: 480px) {
+        .container {
+          background-color: #f1f1f1;
+          padding: 20px;
+
+          margin: auto;
+
+          align-self: center;
+          font-family: "Roboto", sans-serif;
+        }
+      }
+
+      .header-img {
+        width: 200px;
+      }
+      .img-container {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+      a:link,
+      a:visited {
+        background-color: #2d2d7a;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 5px;
+      }
+
+      a:hover,
+      a:active {
+        background-color: #3d2d7a;
+      }
+
+      @media screen and (min-width: 480px) {
+        .container {
+          background-color: #ffffff;
+          padding: 20px;
+
+          margin: auto;
+
+          align-self: center;
+          font-family: "Roboto", sans-serif;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <div class="img-container">
+        <img  alt='TinyOMS' class="header-img" src="" />
+      </div> -->
+      <h4>{{title}}</h4>
+      <p>{{message}}</p>
+    </div>
+  </body>
+</html>

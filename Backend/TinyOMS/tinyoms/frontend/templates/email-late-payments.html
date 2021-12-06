@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      /* Style the container for inputs */
+
+      @media screen and (max-width: 480px) {
+        .container {
+          background-color: #f1f1f1;
+          padding: 20px;
+
+          margin: auto;
+
+          align-self: center;
+          font-family: "Roboto", sans-serif;
+        }
+      }
+
+      .header-img {
+        width: 200px;
+      }
+      .img-container {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+      a:link,
+      a:visited {
+        background-color: #2d2d7a;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 5px;
+      }
+
+      a:hover,
+      a:active {
+        background-color: #3d2d7a;
+      }
+
+      @media screen and (min-width: 480px) {
+        .container {
+          background-color: #ffffff;
+          padding: 20px;
+
+          margin: auto;
+
+          align-self: center;
+          font-family: "Roboto", sans-serif;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <div class="img-container">
+        <img  alt='TinyOMS' class="header-img" src="" />
+      </div> -->
+      <h4>{{title}}</h4>
+      <p>{{message}}</p>
+      
+      <p><b>Son 24 saatteki yeni ödenmemiş borçlar:</b></p>
+
+      <table style="width:100%">
+        <tr> <td>İsim</td> <td>Borç</td> </tr>
+        
+        {% for late_payment in todays_late_payments %}
+          <tr> 
+            <td>{{ late_payment.name }}</td> 
+            <td>{{ late_payment.currency }}{{ late_payment.amount }}</td> 
+          </tr>
+        {% endfor %} 
+
+      </table>
+
+      <p><b>Daha önceden kalan ödenmemiş borçlar:</b></p>
+
+      <table style="width:100%">
+        <tr> <td>İsim</td> <td>Borç</td> <td>Son Ödeme Tarihi</td> </tr>
+        
+        {% for late_payment in older_late_payments %}
+          <tr> 
+            <td>{{ late_payment.name }}</td> 
+            <td>{{ late_payment.currency }}{{ late_payment.amount }}</td> 
+            <td>{{ late_payment.pay_before }}</td> 
+          </tr>
+        {% endfor %} 
+
+      </table>
+
+    </div>
+  </body>
+</html>
