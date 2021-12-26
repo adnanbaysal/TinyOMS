@@ -25,7 +25,7 @@ from rest_framework import permissions
 schema_view = get_schema_view(
     openapi.Info(
         title="TinyOMS API",
-        default_version='v1',
+        default_version="v1",
         description="TinyOMS API",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="contact@snippets.local"),
@@ -37,15 +37,24 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-    path('api/admin/', admin.site.urls),
-    path("api/docs/", include_docs_urls(title='TinyOMS API Docs')),
-    path('api/docs', schema_view), 
-    url(r'^api/swagger(?P<format>\.json|\.yaml)$',
-        schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    url(r'^api/swagger/$', schema_view.with_ui('swagger',
-                                           cache_timeout=0), name='schema-swagger-ui'),
-    url(r'^api/redoc/$', schema_view.with_ui('redoc',
-                                         cache_timeout=0), name='schema-redoc'),
+    path("api/admin/", admin.site.urls),
+    path("api/docs/", include_docs_urls(title="TinyOMS API Docs")),
+    path("api/docs", schema_view),
+    url(
+        r"^api/swagger(?P<format>\.json|\.yaml)$",
+        schema_view.without_ui(cache_timeout=0),
+        name="schema-json",
+    ),
+    url(
+        r"^api/swagger/$",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
+    url(
+        r"^api/redoc/$",
+        schema_view.with_ui("redoc", cache_timeout=0),
+        name="schema-redoc",
+    ),
     path("", include("accounts.urls")),
     path("", include("products.urls")),
     path("", include("generics.urls")),

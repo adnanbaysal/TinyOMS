@@ -6,15 +6,15 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "*"
+django = "==3.1.6"
 python-dotenv = "*"
 psycopg2-binary = "*"
-djangorestframework = "*"
+djangorestframework = "==3.11.1"
 django-rest-knox = "*"
 django-cors-headers = "*"
 pillow = "*"
 django-storages = "*"
-django-background-tasks = "*"
+django-background-tasks = "==1.2.5"
 gunicorn = "*"
 coreapi = "*"
 drf-yasg = "*"
